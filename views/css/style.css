@@ -1,0 +1,13 @@
+/* list_style_0 : default list style */
+.list_style_0_con{}
+.list_style_0_con .list_style_0{}
+.list_style_0_con .list_style_0 .list_style_0_header_con{}
+.list_style_0_con .list_style_0 .list_style_0_header_con .list_style_0_header{}
+.list_style_0_con .list_style_0 .list_style_0_list_item_con{}
+.list_style_0_con .list_style_0 .list_style_0_list_item_con .list_style_0_list_item{}
+
+/* board_view_style_0 : default view style of post */
+.board_view_style_0_con{}
+.board_view_style_0_con .title_con{}
+.board_view_style_0_con .contents_con{}
+.board_view_style_0_con .comment_con{}

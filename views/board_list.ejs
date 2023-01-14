@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <title>board</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1><%= boardName %></h1>
+        <div class="list_style_0_wrap">
+            <table class="list_style_0_con table">
+                <colgroup>
+                    <col width="10%">
+                    <col width="55%">
+                    <col width="20%">
+                    <col width="15%">
+                </colgroup>
+                <tr class="list_style_0_header_con">
+                    <th class="list_style_0_header">No.</th>
+                    <th class="list_style_0_header">Title</th>
+                    <th class="list_style_0_header">Writer</th>
+                    <th class="list_style_0_header">Date</th>
+                </tr>
+                <% for(var i=0; i<postData.length; i++){ 
+                    var listItem = postData[i];
+                %>
+                    <tr class="list_style_0_content_con">
+                        <td class="list_style_0_content"><%= listItem['display_no'] %></td>
+                        <td class="list_style_0_content"><%= listItem['title'] %></td>
+                        <td class="list_style_0_content"><%= listItem['writer'] %></td>
+                        <td class="list_style_0_content"><%= listItem['date'] %></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+        <div class="row">
+            <a class="btn btn-default" href="board/<%=boardName%>/insert">Write</a>
+        </div>
+    </div>
+</body>
+
+</html>
