@@ -1,3 +1,6 @@
+/* Get BoardService */
+import {listBoardPostService, postToBoardService} from "../Service/boardService.js"
+
 /* define board method */
 // list posts of :boardId
 
@@ -36,6 +39,7 @@ export const searchBoard = (req, res) => {
 }
 
 /* Methods relate to crud data */
-export const insertPostData = () => {
-    
+export const postToBoard = async (req, res) => {
+    postToBoard(req.body);
+    return res.send(req.body);
 }

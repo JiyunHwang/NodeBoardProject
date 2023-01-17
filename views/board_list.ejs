@@ -1,3 +1,6 @@
+<script>
+    const WEB_ROOT = "http://"+window.location.host;
+</script>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -45,7 +48,7 @@
             </table>
         </div>
         <div class="row">
-            <a class="btn btn-default" href="board/<%=boardName%>/insert">Write</a>
+            <a class="btn btn-default" href="javascript:void(0)" onclick="window.open(WEB_ROOT+'/board/<%=boardName%>/insert', '_self')">Write</a>
         </div>
     </div>
 </body>

@@ -1,12 +1,18 @@
 // get modules
-// const http = require('http');
-// const express = require('express');
-import express from "express"
-import http from "http"
-import ejs from "ejs"
+import http from 'http';
+import express from 'express';
+import ejs from 'ejs';
+import mySql from 'mysql';
+import dotenv from 'dotenv';
+import config from './config.js';
+
+// get Routers
 import globalRouter from "./Router/globalRouter.js"
 import userRouter from "./Router/userRouter.js"
 import boardRouter from "./Router/boardRouter.js"
+
+// bring environment variables
+dotenv.config();
 
 // create objects for setting
 const app = express();
@@ -14,9 +20,21 @@ const server = http.createServer();
 const hostname = "127.0.0.1";
 const port = 3000;
 
+// create connection to db
+let connection = mySql.createConnection(config[process.env.NODE_ENV]);
+connection.connect((err) => {
+    if(err) throw err;
+});
+
+export connection;
+
 // setting view
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+// setting request data encode
+// app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // enroll routers
 app.use('/', globalRouter);
