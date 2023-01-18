@@ -20,31 +20,36 @@
 
 <body>
     <div class="container">
+        <%- include('includes/header.ejs'); %>
         <h1><%= boardName %></h1>
-        <div class="list_style_0_wrap">
-            <table class="list_style_0_con table">
+        <div class="">
+            <table class="table table-hover">
                 <colgroup>
                     <col width="10%">
                     <col width="55%">
                     <col width="20%">
                     <col width="15%">
                 </colgroup>
-                <tr class="list_style_0_header_con">
-                    <th class="list_style_0_header">No.</th>
-                    <th class="list_style_0_header">Title</th>
-                    <th class="list_style_0_header">Writer</th>
-                    <th class="list_style_0_header">Date</th>
-                </tr>
-                <% for(var i=0; i<postData.length; i++){ 
-                    var listItem = postData[i];
-                %>
-                    <tr class="list_style_0_content_con">
-                        <td class="list_style_0_content"><%= listItem['display_no'] %></td>
-                        <td class="list_style_0_content"><%= listItem['title'] %></td>
-                        <td class="list_style_0_content"><%= listItem['writer'] %></td>
-                        <td class="list_style_0_content"><%= listItem['date'] %></td>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Writer</th>
+                        <th>Date</th>
                     </tr>
-                <% } %>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i<postData.length; i++){ 
+                        var listItem = postData[i];
+                    %>
+                        <tr onclick="window.location=window.location.href + '/view/'+ <%=listItem['seq']%>">
+                            <td><%= listItem['display_no'] %></td>
+                            <td><%= listItem['title'] %></td>
+                            <td><%= listItem['writer'] %></td>
+                            <td><%= listItem['date'] %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
             </table>
         </div>
         <div class="row">

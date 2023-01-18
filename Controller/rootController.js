@@ -2,6 +2,14 @@
 import {getIsLogin, getUserInfo} from "./userController.js"
 
 /* define default methods */
+export const getCommonInfo = (req, res, next) => {
+    // --- get board list from database using service object
+    let boardList = ['board1', 'board2', 'board3', 'board4'];
+    // --- get board list from database using service object
+
+    res.locals.boardList = boardList;
+    next();
+}
 
 export const home = (req, res, next) => {
     // (params, err) => {
@@ -12,14 +20,10 @@ export const home = (req, res, next) => {
     //     }
     // }
 
-    // --- get board list from database using service object
-    let boardList = ['board1', 'board2', 'board3', 'board4'];
-    // --- get board list from database using service object
-
     let isLogin = getIsLogin();
     let userInfo;
 
     if( isLogin ) userInfo = getUserInfo();
 
-    res.render('index', {boardList: boardList, isLogin: isLogin, userInfo: userInfo});
+    res.render('index', {isLogin: isLogin, userInfo: userInfo});
 }

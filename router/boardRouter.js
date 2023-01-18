@@ -1,27 +1,26 @@
 import express from "express"
-import {listPost, insertPost, updatePost, viewPost, deletePost, searchBoard, postToBoard} from "../Controller/boardController.js"
+import {renderListPost, renderInsertPost, renderUpdatePost, renderViewPost, deletePost, searchBoard, listPost, viewPost, insertPost, updatePost} from "../Controller/boardController.js"
 
 const boardRouter = express.Router();
 
 /* Route to rendering method */
 // show lists of post of :boardId
-boardRouter.get('/:boardId', listPost);
+boardRouter.route('/:boardId').get(listPost, renderListPost);
 
 // insert new post to :boardId
-// boardRouter.get('/:boardId/insert', insertPost);
-boardRouter.route('/:boardId/insert').get(insertPost).post(postToBoard);
+boardRouter.route('/:boardId/insert').get(renderInsertPost).post(insertPost);
 
 // update post :postId of :boardId
-boardRouter.get('/:boardId/:postId/update', updatePost);
+boardRouter.route('/:boardId/:postId/update').get(renderUpdatePost).post(updatePost);
 
 // view post :postId of :boardId
-boardRouter.get('/:boardId/:postId/view', viewPost);
+boardRouter.route('/:boardId/view/:postId').get(viewPost, renderViewPost);
 
 // delete post :postId of :boardId
 boardRouter.get('/:boardId/:postId/delete', deletePost);
 
 // search in :boardId
-boardRouter.get('/:boardId/search', searchBoard);
+boardRouter.route('/:boardId/search').get(searchBoard, renderListPost);
 
 
 
