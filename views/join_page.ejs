@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <title>Join</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Join to Member</h1>
+        <form id="login" method="POST" action="" >
+            <div class="form-group">
+              <label for="userId">ID</label>
+              <input type="text" class="form-control" id="userId" name="userId"  placeholder="ID">
+            </div>
+            <div class="form-group">
+              <label for="userNickname">Nickname</label>
+              <input type="text" class="form-control" id="userNickname" name="userNickname"  placeholder="Nickname">
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Password</label>
+              <input type="password" class="form-control" id="userPassword" name="userPassword"  placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" id="loginBtn">Join</button>
+        </form>
+    </div>
+</body>
+
+</html>

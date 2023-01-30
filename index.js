@@ -2,6 +2,7 @@
 import http from 'http';
 import express from 'express';
 import ejs from 'ejs';
+import cookieParser from 'cookie-parser'
 
 // get Routers
 import globalRouter from "./Router/globalRouter.js"
@@ -20,6 +21,9 @@ const port = 3000;
 // setting view
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+// set cookie parser
+app.use(cookieParser());
 
 // setting request data encode
 app.use(express.urlencoded({extended: true}));

@@ -1,15 +1,15 @@
 import express from "express"
-import {login, logout, joinSite} from "../Controller/userController.js"
+import {renderLoginPage, renderJoinPage, login, logout, joinSite} from "../Controller/userController.js"
 
 const userRouter = express.Router();
 
 // login
-userRouter.get('/user/login', login);
+userRouter.route('/login').get(renderLoginPage).post(login);
 
 // logout
-userRouter.get('/user/logout', logout);
+userRouter.get('/logout', logout);
 
 // join (create user)
-userRouter.get('/user/join', joinSite);
+userRouter.route('/join').get(renderJoinPage).post(joinSite);
 
 export default userRouter;
